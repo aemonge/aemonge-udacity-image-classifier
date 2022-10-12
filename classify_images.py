@@ -74,6 +74,6 @@ def classify_images(images_dir, results_dic, model):
         image_path = images_dir + "/" + image
         model_label = classifier(image_path, model)
         model_label = parse_pet_label(model_label)
-        print(":{}:-:{}:".format(model_label, image_path))
+        print("[{}] \t\t\t \"{}\"".format(image_path, model_label))
     print("\n\n {}".format(results_dic))
     None
