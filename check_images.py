@@ -23,7 +23,7 @@
 ##
 
 # Imports python modules
-from time import time, sleep
+from time import time
 
 # Imports print functions that check the lab
 from print_functions_for_lab_checks import *
@@ -39,13 +39,12 @@ from print_results import print_results
 # Main program function defined below
 def main():
     start_time = time()
-    in_arg = get_input_args()
 
-    check_command_line_arguments(in_arg)
+    in_arg = get_input_args()
+    # check_command_line_arguments(in_arg) # DONE: 1
 
     results = get_pet_labels(in_arg.dir)
-    check_creating_pet_image_labels(results)
-
+    # check_creating_pet_image_labels(results) # DONE: 2
 
     # TODO: 3 Define classify_images function within the file classiy_images.py
     # Once the classify_images function has been defined replace first 'None'
@@ -55,7 +54,7 @@ def main():
     #             classify_images(in_arg.dir, results, in_arg.arch)
     # Creates Classifier Labels with classifier function, Compares Labels,
     # and adds these results to the results dictionary - results
-    classify_images(None, results, None)
+    classify_images(in_arg.dir, results, in_arg.arch)
 
     # Function that checks Results Dictionary using results
     check_classifying_images(results)
