@@ -39,23 +39,11 @@ from print_results import print_results
 # Main program function defined below
 def main():
     start_time = time()
-
     in_arg = get_input_args()
 
-    # DONE
     check_command_line_arguments(in_arg)
 
-
-    # TODO: 2 Define get_pet_labels function within the file get_pet_labels.py
-    # Once the get_pet_labels function has been defined replace 'None'
-    # in the function call with in_arg.dir  Once you have done the replacements
-    # your function call should look like this:
-    #             get_pet_labels(in_arg.dir)
-    # This function creates the results dictionary that contains the results,
-    # this dictionary is returned from the function call as the variable results
-    results = get_pet_labels(None)
-
-    # Function that checks Pet Images in the results Dictionary using results
+    results = get_pet_labels(in_arg.dir)
     check_creating_pet_image_labels(results)
 
 
