@@ -25,12 +25,6 @@ from classifier import classifier
 from utils import parse_pet_label
 from os import listdir
 
-# TODO 3: Define classify_images function below, specifically replace the None
-#       below by the function definition of the classify_images function.
-#       Notice that this function doesn't return anything because the
-#       results_dic dictionary that is passed into the function is a mutable
-#       data type so no return is needed.
-#
 def classify_images(images_dir, results_dic, model):
     """
     Creates classifier labels with classifier function, compares pet labels to
@@ -67,13 +61,11 @@ def classify_images(images_dir, results_dic, model):
      Returns:
            None - results_dic is mutable data type so no return needed.
     """
-    # image_classification = classifier("pet_images/Collie_03797.jpg", "vgg")
 
     for image in listdir(images_dir):
-    # image = listdir(images_dir)[0]
         image_path = images_dir + "/" + image
-        model_label = classifier(image_path, model)
-        model_label = parse_pet_label(model_label)
-        print("[{}] \t\t\t \"{}\"".format(image_path, model_label))
-    print("\n\n {}".format(results_dic))
-    None
+        model_label = [parse_pet_label(l) for l in classifier(image_path, model).split(",")]
+        parse_image = parse_pet_label(image)
+        results_dic[image] = [parse_image, ", ".join(model_label),
+            (1 if parse_image in model_label else 0)
+        ]

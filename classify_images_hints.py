@@ -24,8 +24,8 @@
 # Imports classifier function for using CNN to classify images
 from classifier import classifier
 
-# TODO: 3 EDIT and ADD code BELOW to do the following that's stated in the
-#       comments below that start with "TODO: 3" for the classify_images function
+# DONE: 3 EDIT and ADD code BELOW to do the following that's stated in the
+#       comments below that start with "DONE: 3" for the classify_images function
 #       Specifically EDIT and ADD code to define the classify_images function.
 #       Notice that this function doesn't return anything because the
 #       results_dic dictionary that is passed into the function is a mutable
@@ -72,7 +72,7 @@ def classify_images(images_dir, results_dic, model):
     # classifier function
     for key in results_dic:
 
-       # TODO: 3a. Set the string variable model_label to be the string that's
+       # DONE: 3a. Set the string variable model_label to be the string that's
        #           returned from using the classifier function instead of the
        #           empty string below.
        #
@@ -81,7 +81,7 @@ def classify_images(images_dir, results_dic, model):
        # as classifier label
        model_label = ""
 
-       # TODO: 3b. BELOW REPLACE pass with CODE to process the model_label to
+       # DONE: 3b. BELOW REPLACE pass with CODE to process the model_label to
        #           convert all characters within model_label to lowercase
        #           letters and then remove whitespace characters from the ends
        #           of model_label. Be certain the resulting processed string
@@ -94,7 +94,7 @@ def classify_images(images_dir, results_dic, model):
        # defines truth as pet image label
        truth = results_dic[key][0]
 
-       # TODO: 3c. REPLACE pass BELOW with CODE that uses the extend list function
+       # DONE: 3c. REPLACE pass BELOW with CODE that uses the extend list function
        #           to add the classifier label (model_label) and the value of
        #           1 (where the value of 1 indicates a match between pet image
        #           label and the classifier label) to the results_dic dictionary
@@ -106,7 +106,7 @@ def classify_images(images_dir, results_dic, model):
        if truth in model_label:
            pass
 
-       # TODO: 3d. REPLACE pass BELOW with CODE that uses the extend list function
+       # DONE: 3d. REPLACE pass BELOW with CODE that uses the extend list function
        #           to add the classifier label (model_label) and the value of
        #           0 (where the value of 0 indicates NOT a match between the pet
        #           image label and the classifier label) to the results_dic
