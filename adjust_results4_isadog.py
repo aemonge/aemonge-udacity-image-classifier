@@ -74,7 +74,7 @@ def adjust_results4_isadog(results_dic, dogfile):
             dogs_names.add(dog.strip())
 
     for k, v in results_dic.items():
-        results_dic[k].append(v[0] in dogs_names)
+        results_dic[k].append(1 if v[0] in dogs_names else 0)
         results_dic[k].append(
             1 if ( True in ( e in dogs_names for e in v[1].split(", "))) else 0
         )
