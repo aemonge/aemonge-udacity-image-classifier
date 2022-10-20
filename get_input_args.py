@@ -23,6 +23,16 @@ def _dir_path(path):
     else:
         raise NotADirectoryError(path)
 
+def _check_model(model):
+    if not isinstance(model, str):
+        raise TypeError('Model should be  a string')
+    model = model.lower()
+
+    aviableModels = ['vgg', 'alexnet', 'resnet']
+    if model not in aviableModels:
+        raise TypeError('Model should be one of {}'.format(aviableModels))
+    return model
+
 def get_input_args():
     """
     Retrieves and parses the 3 command line arguments provided by the user when
@@ -43,7 +53,7 @@ def get_input_args():
 
     parser = argparse.ArgumentParser(prog='aemonge-image-clasifier', description="Clasify images, to know it they're dogs and what race they are")
     parser.add_argument('--dir', type=_dir_path, default="pet_images")
-    parser.add_argument('--arch', default="vgg")
+    parser.add_argument('--arch', default="vgg", type=_check_model)
     parser.add_argument('--dogfile', type=argparse.FileType('r'), default="dognames.txt")
 
     return parser.parse_args()

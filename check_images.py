@@ -46,17 +46,16 @@ def main():
     results = get_pet_labels(in_arg.dir)
     # check_creating_pet_image_labels(results) # DONE: 2
 
-    classify_images(in_arg.dir, results, in_arg.arch)
+    classify_images(in_arg.dir, results, in_arg.arch) # DONE: 3
     # check_classifying_images(results)
 
-    adjust_results4_isadog(results, in_arg.dogfile)
+    adjust_results4_isadog(results, in_arg.dogfile) # DONE: 4
     # check_classifying_labels_as_dogs(results)
 
-
-    results_stats = calculates_results_stats(results)
+    results_stats = calculates_results_stats(results) # DONE: 5
     # check_calculating_results(results, results_stats)
 
-    print_results(results, results_stats, in_arg.arch, True, True)
+    print_results(results, results_stats, in_arg.arch, True, True) # DONE: 6
 
     end_time = time()
 
