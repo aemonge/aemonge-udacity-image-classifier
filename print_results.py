@@ -83,9 +83,9 @@ def print_results(results_dic, results_stats_dic, model,
         # process through results dict, printing incorrectly classified dogs
         for key, val in results_dic.items():
             if val[3] and not val[4]:
-                print("{:20}: {:3d}".format('Pet Image Label is a Dog - Classified as NOT-A-DOG', val[0]))
+                print("{:20}: {:3s}".format('Pet Image Label is a Dog - Classified as NOT-A-DOG', val[0]))
             elif not val[3] and val[4]:
-                print("{:20}: {:3d}".format('Pet Image Label is NOT-a-Dog - Classified as a-DOG', val[0]))
+                print("{:20}: {:3s}".format('Pet Image Label is NOT-a-Dog - Classified as a-DOG', val[0]))
 
     # IF print_incorrect_breed == True AND there were dogs whose breeds
     # were incorrectly classified - print out these cases
