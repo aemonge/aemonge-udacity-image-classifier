@@ -22,7 +22,7 @@
 ##
 # Imports classifier function for using CNN to classify images
 from classifier import classifier
-from utils import parse_pet_label
+from utils import isntHiddenFile, parse_pet_label
 from os import listdir
 
 def classify_images(images_dir, results_dic, model):
@@ -62,7 +62,9 @@ def classify_images(images_dir, results_dic, model):
            None - results_dic is mutable data type so no return needed.
     """
 
-    for image in listdir(images_dir):
+    dirs = listdir(images_dir);
+    dirs = filter(isntHiddenFile, dirs);
+    for image in dirs:
         image_path = images_dir + "/" + image
         model_label = [parse_pet_label(l) for l in classifier(image_path, model).split(",")]
         parse_image = parse_pet_label(image)

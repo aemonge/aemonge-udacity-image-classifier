@@ -68,8 +68,8 @@ def print_results(results_dic, results_stats_dic, model,
     # Prints summary statistics (percentages) on Model Run
     print(" ")
     for key in results_stats_dic:
-        if key.find('p'):
-            print("{:20}: {:3d}".format(key, results_stats_dic[key]))
+        if key.startswith('p'):
+            print("{:20}: {:5.2f}".format(key, results_stats_dic[key]))
 
 
     # IF print_incorrect_dogs == True AND there were images incorrectly
@@ -83,9 +83,9 @@ def print_results(results_dic, results_stats_dic, model,
         # process through results dict, printing incorrectly classified dogs
         for key, val in results_dic.items():
             if val[3] and not val[4]:
-                print("{:20}: {:3s}".format('Pet Image Label is a Dog - Classified as NOT-A-DOG', val[0]))
+                print("{:20}\n\t \"{:3s}\" classified as \"{:3s}\"".format('Pet Image Label is a Dog - Classified as NOT-A-DOG', val[0], val[1]))
             elif not val[3] and val[4]:
-                print("{:20}: {:3s}".format('Pet Image Label is NOT-a-Dog - Classified as a-DOG', val[0]))
+                print("{:20}\n\t \"{:3s}\" classified as \"{:3s}\"".format('Pet Image Label is NOT-a-Dog - Classified as a-DOG', val[0], val[1]))
 
     # IF print_incorrect_breed == True AND there were dogs whose breeds
     # were incorrectly classified - print out these cases

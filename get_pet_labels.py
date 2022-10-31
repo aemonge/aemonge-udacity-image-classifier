@@ -18,7 +18,7 @@
 ##
 # Imports python modules
 from os import listdir
-from utils import parse_pet_label
+from utils import isntHiddenFile, parse_pet_label
 
 # TODO 2: Define get_pet_labels function below please be certain to replace None
 #       in the return statement with results_dic dictionary that you create
@@ -44,7 +44,9 @@ def get_pet_labels(image_dir):
     # Replace None with the results_dic dictionary that you created with this
     results_dic = dict()
 
-    for file in listdir(image_dir):
+    dirs = listdir(image_dir);
+    dirs = filter(isntHiddenFile, dirs);
+    for file in dirs:
         results_dic[file] = [parse_pet_label(file)]
 
     return results_dic;

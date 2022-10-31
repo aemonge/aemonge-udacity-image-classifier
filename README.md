@@ -9,6 +9,12 @@ You need to use an already developed Python classifier to make sure the particip
 
 Note, you DO NOT need to create the classifier. It will be provided to you. You will need to apply the Python tools you just learned to USE the classifier.
 
+### Run
+```bash
+python ./check_images.py --dir uploaded_images --arch VGG --dogfile dognames.txt
+python ./check_images.py -h
+```
+
 ## TODO:
 
 * [ ] Using your Python skills, you will determine which image classification algorithm works the "best" on classifying images as "dogs" or "not dogs".

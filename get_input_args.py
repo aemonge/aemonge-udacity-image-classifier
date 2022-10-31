@@ -18,7 +18,7 @@
 import argparse, os
 
 def _dir_path(path):
-    if os.path.isdir(path):
+    if os.path.isdir(path) and path[0] != '.':
         return path
     else:
         raise NotADirectoryError(path)
