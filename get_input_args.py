@@ -16,9 +16,10 @@
 ##
 # Imports python modules
 import argparse, os
+from utils import isntHiddenFile
 
 def _dir_path(path):
-    if os.path.isdir(path) and path[0] != '.':
+    if os.path.isdir(path) and isntHiddenFile(path):
         return path
     else:
         raise NotADirectoryError(path)
